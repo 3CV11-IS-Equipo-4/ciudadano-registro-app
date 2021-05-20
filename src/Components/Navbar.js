@@ -14,20 +14,41 @@ export default function Navbar({type}){
                     </div>
                 
                 <div className="col-8 title h-100">
-                    {type === "ciudadano" ? <div className="col-12 title d-flex justify-content-center h-100">
+                    {type === "general" ? 
+                    <div className="col-12 title d-flex justify-content-center h-100">
                         <h4>Sistema de registro de ciudadanos</h4>
                     </div> :  
-                    (
-                        <div className="d-flex justify-content-end mr-5">
+                    <div className="d-flex justify-content-end mr-5">
                         <ul className="nav">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">
-                                Cerrar Sesión
-                            </Link>
+                                    Consultar información
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/logout">
+                                    Firmar documento
+                                </Link>
+                            </li>
+                            {type === "ciudadano" ? 
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/logout">
+                                    Acceder como persona moral
+                                </Link>
+                            </li> :
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/logout">
+                                    Agregar persona física
+                                </Link>
+                            </li>
+                            }
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/logout">
+                                    Cerrar Sesión
+                                </Link>
                             </li>
                         </ul>
                     </div>
-                    )
                     }
                 </div>
             </div>

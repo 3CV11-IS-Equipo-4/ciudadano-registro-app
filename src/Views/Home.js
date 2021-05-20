@@ -1,8 +1,8 @@
+import Layout from "../Components/Layout";
 
 export default function Home(){
-    return(
-	<div>
-	  hola mundo
-	</div>
+  return(
+      <Layout head="Bienvenido" type="ciudadano">
+      </Layout>
     );
 }

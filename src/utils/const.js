@@ -6,7 +6,7 @@ module.exports = {
                 name: 'nombres',
                 type: 'text',
                 placeholder: 'Mario',
-                require: true,
+                required: true,
 
             },
             {
@@ -14,7 +14,7 @@ module.exports = {
                 name: 'primerApellido',
                 type: 'text',
                 placeholder: '',
-                require: true,
+                required: true,
 
             },
             {
@@ -22,7 +22,7 @@ module.exports = {
                 name: 'segundoApellido',
                 type: 'text',
                 placeholder: 'Juarez',
-                require: true,
+                required: true,
 
             },
             {
@@ -30,7 +30,7 @@ module.exports = {
                 name: 'curp',
                 type: 'text',
                 placeholder: 'lskdkhfhjfs',
-                require: true,
+                required: true,
 
             },
             {
@@ -38,7 +38,7 @@ module.exports = {
                 name: 'rfc',
                 type: 'text',
                 placeholder: 'rfc',
-                require: true,
+                required: true,
 
             },
             {
@@ -46,7 +46,7 @@ module.exports = {
                 name: 'fechaNacimiento',
                 type: 'date',
                 placeholder: '',
-                require: true,
+                required: true,
 
             },
             {
@@ -54,7 +54,7 @@ module.exports = {
                 name: 'calle',
                 type: 'text',
                 placeholder: 'Mar mediterraneo',
-                require: true,
+                required: true,
 
             },
             {
@@ -62,7 +62,7 @@ module.exports = {
                 name: 'numExterior',
                 type: 'text',
                 placeholder: '54',
-                require: true,
+                required: true,
 
             },
             {
@@ -70,7 +70,7 @@ module.exports = {
                 name: 'numInterior',
                 type: 'text',
                 placeholder: '32',
-                require: true,
+                required: true,
 
             },
             {
@@ -78,7 +78,7 @@ module.exports = {
                 name: 'colonia',
                 type: 'text',
                 placeholder: 'Anahuac',
-                require: true,
+                required: true,
 
             },
             {
@@ -86,7 +86,7 @@ module.exports = {
                 name: 'cp',
                 type: 'number',
                 placeholder: '11320',
-                require: true,
+                required: true,
 
             },
             {
@@ -94,7 +94,7 @@ module.exports = {
                 name: 'alcaldia',
                 type: 'text',
                 placeholder: 'Miguel Hidalgo',
-                require: true,
+                required: true,
 
             },
         ],
@@ -104,7 +104,7 @@ module.exports = {
                 name: 'rfc',
                 type: 'text',
                 placeholder: 'rfc',
-                require: true,
+                required: true,
 
             },
             {
@@ -112,7 +112,7 @@ module.exports = {
                 name: 'denominacionSocial',
                 type: 'text',
                 placeholder: 'Denominación social',
-                require: true,
+                required: true,
 
             },
             {
@@ -120,7 +120,7 @@ module.exports = {
                 name: 'razonSocial',
                 type: 'text',
                 placeholder: 'Razón social',
-                require: true,
+                required: true,
 
             },
             {
@@ -128,7 +128,7 @@ module.exports = {
                 name: 'calle',
                 type: 'text',
                 placeholder: 'Mar mediterraneo',
-                require: true,
+                required: true,
 
             },
             {
@@ -136,7 +136,7 @@ module.exports = {
                 name: 'numExterior',
                 type: 'text',
                 placeholder: '54',
-                require: true,
+                required: true,
 
             },
             {
@@ -144,7 +144,7 @@ module.exports = {
                 name: 'numInterior',
                 type: 'text',
                 placeholder: '54',
-                require: true,
+                required: true,
 
             },
             {
@@ -152,7 +152,7 @@ module.exports = {
                 name: 'colonia',
                 type: 'text',
                 placeholder: 'Anahuac',
-                require: true,
+                required: true,
 
             },
             {
@@ -160,7 +160,7 @@ module.exports = {
                 name: 'cp',
                 type: 'number',
                 placeholder: '11320',
-                require: true,
+                required: true,
 
             },
             {
@@ -168,7 +168,7 @@ module.exports = {
                 name: 'alcaldia',
                 type: 'text',
                 placeholder: 'Miguel Hidalgo',
-                require: true,
+                required: true,
 
             },
             {
@@ -176,7 +176,7 @@ module.exports = {
                 name: 'contrasena',
                 type: 'password',
                 placeholder: '',
-                require: true,
+                required: true,
 
             },
             {
@@ -184,8 +184,26 @@ module.exports = {
                 name: 'contrasena2',
                 type: 'password',
                 placeholder: '',
-                require: true,
+                required: true,
 
+            },
+        ],
+    },
+    logins:{
+        loginPM:[
+            {
+                label: 'RFC',
+                name: 'rfc',
+                type: 'text',
+                placeholder: 'rfc',
+                requiredd: true,
+            },
+            {
+                label: 'Contraseña',
+                name: 'password',
+                type: 'password',
+                placeholder: '',
+                requiredd: true,
             },
         ],
     },

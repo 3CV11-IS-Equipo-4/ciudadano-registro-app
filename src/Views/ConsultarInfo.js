@@ -1,5 +1,7 @@
 import Layout from '../Components/Layout';
 import RowData from '../Components/RowData';
+import Table from '../Components/Table';
+import {tables} from '../utils/const';
 
 export default function ConsultarInfo(){
     // Variable de prueba
@@ -21,6 +23,11 @@ export default function ConsultarInfo(){
         facebook: '21/06/1999',
         google: '21/06/1999'
     };
+    let data_personas = [];
+
+    const aceptar = () => {};
+
+    const denegar = () => {};
 
     return (
         <Layout type={type}>
@@ -48,7 +55,9 @@ export default function ConsultarInfo(){
                     <>
                     <RowData label1="Correo electrónico:" data1={data.email} label2="RFC del responsable:" data2={data.rfc_resp} label3="CURP del responsable:" data3={data.curp_resp} />
                     <h3 className="mb-3">Personas asociadas</h3>
-                    Aqui va la tabla
+                    {data_personas ? 
+                    <Table cols={tables.consultarInfo} datos={data_personas} aceptar={aceptar} denegar={denegar}></Table>
+                    :'No hay personas asociadas'}
                     </>
                     :<></>}
                     

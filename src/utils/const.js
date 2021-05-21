@@ -188,6 +188,82 @@ module.exports = {
 
             },
         ],
+        modificarInfo: [
+            {
+                label: 'Calle',
+                name: 'calle',
+                type: 'text',
+                placeholder: 'Mar mediterraneo',
+                required: true,
+            },
+            {
+                label: 'Número exterior',
+                name: 'num_exterior',
+                type: 'text',
+                placeholder: '200',
+                required: true,
+            },
+            {
+                label: 'Número interior',
+                name: 'num_interior',
+                type: 'text',
+                placeholder: '43',
+                required: true,
+            },
+            {
+                label: 'Colonia',
+                name: 'colonia',
+                type: 'text',
+                placeholder: 'Anahuac',
+                required: true,
+            },
+            {
+                label: 'Codigo Postal',
+                name: 'cp',
+                type: 'text',
+                placeholder: '11320',
+                required: true,
+            },
+            {
+                label: 'Alcaldía',
+                name: 'alcaldia',
+                type: 'text',
+                placeholder: 'Miguel Hidalgo',
+                required: true,
+            },
+        ],
+        recuperarAcceso: [
+            {
+                label: 'RFC de persona moral',
+                name: 'rfc',
+                type: 'text',
+                placeholder: 'RFC',
+                required: true,
+            },
+        ],
+        agregarPersona: [
+            {
+                label: 'CURP de persona física',
+                name: 'curp',
+                type: 'text',
+                placeholder: 'CURP',
+                required: true,
+            },
+            {
+                label: 'RFC de persona física',
+                name: 'rfc',
+                type: 'text',
+                placeholder: 'RFC',
+                required: true,
+            },
+            {
+                label: 'Contraseña',
+                name: 'password',
+                type: 'password',
+                placeholder: '',
+                required: true,
+            },
+        ],
     },
     logins:{
         loginPM:[
@@ -204,6 +280,56 @@ module.exports = {
                 type: 'password',
                 placeholder: '',
                 requiredd: true,
+            },
+        ],
+    },
+    tables: {
+        modificarInfo: [
+            {
+                Header: 'Calle',
+                accessor: 'calle', // it is key in data
+            },
+            {
+                Header: 'Número Interior',
+                accessor: 'num_interior',
+            },
+            {
+                Header: 'Número exterior',
+                accessor: 'num_exterior',
+            },
+            {
+                Header: 'CP',
+                accessor: 'cp',
+            },
+            {
+                Header: 'Alcaldía',
+                accessor: 'alcaldia',
+            },
+            {
+                Header: 'Colonia',
+                accessor: 'colonia',
+            },
+        ],
+        consultarInfo: [
+            {
+                Header: 'CURP',
+                accessor: 'curp', // it is key in data
+            },
+            {
+                Header: 'RFC',
+                accessor: 'rfc',
+            },
+            {
+                Header: 'Nombre(s)',
+                accessor: 'nombres',
+            },
+            {
+                Header: 'Primer apellido',
+                accessor: 'primer_apellido',
+            },
+            {
+                Header: 'Segundo apellido',
+                accessor: 'segundo_apellido',
             },
         ],
     },

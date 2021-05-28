@@ -10,7 +10,7 @@ function Layout({head, subheading,children,type}){
         <h1 className="m-5">{head}</h1>
         {subheading ? <h2 className="m-5">{subheading}</h2>:''}
         <div className="container d-flex flex-fill justify-content-start align-items-center flex-column">
-            {children}            
+            {children}
         </div>
         <Footer/>
         </div>

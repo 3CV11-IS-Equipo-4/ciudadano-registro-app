@@ -6,14 +6,38 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from './Views/Home'
+import Registro from './Views/Registro';
+import InicioSesion from './Views/InicioSesion';
+import ConsultarInfo from './Views/ConsultarInfo';
+import ModificarInfo from './Views/ModificarInfo';
+import RecuperarAcceso from './Views/RecuperarAcces';
+import AgregarPersona from './Views/AgregarPersona';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-	<Route exact path="/">
-	  <Home/>
-	</Route>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route exact path="/Registro">
+            <Registro/>
+        </Route>
+        <Route exact path="/InicioSesion">
+            <InicioSesion/>
+        </Route>
+        <Route exact path="/ConsultarInfo">
+            <ConsultarInfo/>
+        </Route>
+        <Route exact path="/ModificarInfo">
+            <ModificarInfo/>
+        </Route>
+        <Route exact path="/RecuperarAcceso">
+            <RecuperarAcceso/>
+        </Route>
+        <Route exact path="/AgregarPersona">
+            <AgregarPersona/>
+        </Route>
       </Switch>
     </Router>
   </React.StrictMode>,

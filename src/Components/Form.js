@@ -4,13 +4,59 @@ import Input from "./Input";
 import Select from "./Select";
 import Photo from "./Photo";
 import { GoogleLogin} from 'react-google-login';
+import axios from 'axios';
+import {useHistory} from "react-router-dom";
 
-export default function Form({submit, inputsData, textBtn, children, styling, stylingF, stylingI,page,type}) {
+export default function Form({submit, inputsData, textBtn, children, styling, stylingF, stylingI,page,type,islogin}) {
+    const history = useHistory();
+
+    const path= 'https://cdmx-registro-ciudadano-api.herokuapp.com/';
 
 	const registrar = (response) => {
-		console.log("Se logro", response);
-        console.log("Datos",inputs);
+        
+        console.log("id token:",response.qc.id_token) 
+        let data = {...inputs,["google_id_token"]:response.qc.id_token};
+        console.log("datos",data);
+        axios.post(
+            path+'physical_persons',{...data}
+        ).then(res => {
+            console.log("Funciono",res);
+            let data = {["google_id_token"]:response.qc.id_token};
+            axios.post(
+                path+'physical_persons/login_google',{...data}
+            ).then(({data,status}) =>{
+                if (status === 200){
+                    window.localStorage.setItem('token',data.key_pp);
+                    history.push('/ConsultarInfo');
+                    console.log('status',status);
+                    console.log('data',data);
+                }
+            }).catch(error => {
+                console.log("error",error.message);
+                history.push('/');
+            })
+        }).catch(error => {
+            console.log("Error",error);
+        })
 	}
+
+    const loginGoogle = (response) => {
+        console.log("Funcion para el login");
+        let data = {["google_id_token"]:response.qc.id_token};
+        axios.post(
+            path+'physical_persons/login_google',{...data}
+        ).then(({data,status}) =>{
+            if (status === 200){
+                window.localStorage.setItem('token',data.key_pp);
+                history.push('/ConsultarInfo');
+                console.log('status',status);
+                console.log('data',data);
+            }
+        }).catch(error => {
+            console.log("error",error.message);
+            history.push('/');
+        })
+    }
 	
 	//let { type } = useParams();
 	const logout = (response) => {
@@ -93,8 +139,8 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
             <Button type="submit" styling={styling} text={textBtn}></Button>:
             <GoogleLogin
             clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
-            buttonText="Registrate"
-            onSuccess={registrar}
+            buttonText={islogin ? "Iniciar sesión" : "Registrate"}
+            onSuccess={islogin ? loginGoogle : registrar}
             onFailure={handleLoginFailure}
             onRequest={handleRequest}
             onAutoLoadFinished={handleAutoLoadFinished}

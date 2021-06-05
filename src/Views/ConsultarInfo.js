@@ -2,7 +2,7 @@ import Layout from '../Components/Layout';
 import RowData from '../Components/RowData';
 import Table from '../Components/Table';
 import {tables} from '../utils/const';
-import axios from 'axios';
+import { api } from '../utils/https';
 import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useEffect, useState} from 'react';
@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 
 function ConsultarInfo(){
     const history = useHistory();
-    const path= 'https://cdmx-registro-ciudadano-api.herokuapp.com/';
     
     const [data, setData] = useState(null);
     const [user, setUser] = useState(null);
@@ -25,7 +24,7 @@ function ConsultarInfo(){
             }
         };
         console.log("p",p);
-        axios.get(path+'physical_persons/'+p.sub._id,config)
+        api.get('physical_persons/'+p.sub._id,config)
             .then(({data, status})=>{
                 if(status === 200) {
                     setData(data);

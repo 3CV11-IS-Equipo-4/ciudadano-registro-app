@@ -1,7 +1,7 @@
 import Layout from '../Components/Layout';
 import Form from '../Components/Form';
 import { registers } from '../utils/const'
-import axios from 'axios';
+import { api } from '../utils/https';
 import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useState} from 'react';
@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 
 function RegistrarPM(){
 	const history = useHistory();
-    const path= 'https://cdmx-registro-ciudadano-api.herokuapp.com/';
     
     const [data, setData] = useState(null);
     const [user, setUser] = useState(null);
@@ -23,7 +22,7 @@ function RegistrarPM(){
             }
         };
         console.log("request",{...config},{...inputs});
-		axios.post(`${path}moral_persons`,{...inputs},config)	
+		api.post('moral_persons',{...inputs},config)	
             .then(({data, status})=>{
                 if(status === 200) {
                     setData(data);

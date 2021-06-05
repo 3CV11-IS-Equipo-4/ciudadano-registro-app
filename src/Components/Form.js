@@ -4,26 +4,21 @@ import Input from "./Input";
 import Select from "./Select";
 import Photo from "./Photo";
 import { GoogleLogin} from 'react-google-login';
-import axios from 'axios';
+import { api } from '../utils/https';
 import {useHistory} from "react-router-dom";
 
 export default function Form({submit, inputsData, textBtn, children, styling, stylingF, stylingI,page,type,islogin}) {
     const history = useHistory();
 
-    const path= 'https://cdmx-registro-ciudadano-api.herokuapp.com/';
-
 	const registrar = (response) => {
         
-        console.log("id token:",response.qc.id_token) 
         let data = {...inputs,["google_id_token"]:response.qc.id_token};
         console.log("datos",data);
-        axios.post(
-            path+'physical_persons',{...data}
+        api.post('physical_persons',{...data}
         ).then(res => {
             console.log("Funciono",res);
             let data = {["google_id_token"]:response.qc.id_token};
-            axios.post(
-                path+'physical_persons/login_google',{...data}
+            api.post('physical_persons/login_google',{...data}
             ).then(({data,status}) =>{
                 if (status === 200){
                     window.localStorage.setItem('token',data.key_pp);
@@ -43,8 +38,7 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
     const loginGoogle = (response) => {
         console.log("Funcion para el login");
         let data = {["google_id_token"]:response.qc.id_token};
-        axios.post(
-            path+'physical_persons/login_google',{...data}
+        api.post('physical_persons/login_google',{...data}
         ).then(({data,status}) =>{
             if (status === 200){
                 window.localStorage.setItem('token',data.key_pp);

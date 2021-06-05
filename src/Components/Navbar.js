@@ -7,8 +7,7 @@ import { useHistory } from "react-router-dom";
 export default function Navbar({type}){
     const history = useHistory();
     const logout = (response) =>{
-        window.localStorage.setItem('token',null);
-        history.push('/ConsultarInfo');
+        window.localStorage.removeItem('token');
         history.push('/');
     }
     return(

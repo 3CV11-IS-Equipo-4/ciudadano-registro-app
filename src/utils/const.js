@@ -116,14 +116,6 @@ module.exports = {
 
             },
             {
-                label: 'Razón social',
-                name: 'razonSocial',
-                type: 'text',
-                placeholder: 'Razón social',
-                required: true,
-
-            },
-            {
                 label: 'Calle',
                 name: 'street',
                 type: 'text',
@@ -238,13 +230,6 @@ module.exports = {
                 name: 'RFC_physical_person',
                 type: 'text',
                 placeholder: 'RFC',
-                required: true,
-            },
-            {
-                label: 'Contraseña',
-                name: 'password',
-                type: 'password',
-                placeholder: '',
                 required: true,
             },
         ],

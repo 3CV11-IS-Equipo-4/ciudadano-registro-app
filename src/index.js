@@ -12,6 +12,7 @@ import ConsultarInfo from './Views/ConsultarInfo';
 import ModificarInfo from './Views/ModificarInfo';
 import RecuperarAcceso from './Views/RecuperarAcces';
 import AgregarPersona from './Views/AgregarPersona';
+import RegistrarPM from './Views/RegistrarPM';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -37,6 +38,9 @@ ReactDOM.render(
         </Route>
         <Route exact path="/AgregarPersona">
             <AgregarPersona/>
+        </Route>
+        <Route exact path="/RegistrarPM">
+            <RegistrarPM/>
         </Route>
       </Switch>
     </Router>

@@ -1,8 +1,16 @@
 import logo from '../img/logocdmx.png'
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
+import { GoogleLogout } from 'react-google-login';
+import { useHistory } from "react-router-dom";
 
 export default function Navbar({type}){
+    const history = useHistory();
+    const logout = (response) =>{
+        window.localStorage.setItem('token',null);
+        history.push('/ConsultarInfo');
+        history.push('/');
+    }
     return(
         <nav className="navbar bar">
             <div className="container-fluid conter">
@@ -43,9 +51,10 @@ export default function Navbar({type}){
                             </li>
                             }
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
-                                    Cerrar Sesión
-                                </Link>
+                            <GoogleLogout
+                            clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
+                            onLogoutSuccess={logout}
+                            />
                             </li>
                         </ul>
                     </div>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 export default function useForm(callback, defaults,page){
     const [inputs, setInputs] = useState(defaults);
-    const [buttonStage, setButtonStage] = useState(false);
 
     const handleInputs = (event) => {
         console.log('Inputs', inputs);

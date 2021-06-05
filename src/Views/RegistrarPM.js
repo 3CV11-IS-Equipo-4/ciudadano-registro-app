@@ -5,13 +5,11 @@ import { api } from '../utils/https';
 import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useState} from 'react';
-import { useHistory } from "react-router-dom";
 
 function RegistrarPM(){
-	const history = useHistory();
     
-    const [data, setData] = useState(null);
-    const [user, setUser] = useState(null);
+    const [setData] = useState(null);
+    const [setUser] = useState(null);
 
     const registrar_pm = (inputs) => {
         const token = window.localStorage.getItem('token')

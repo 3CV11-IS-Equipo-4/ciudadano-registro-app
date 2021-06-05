@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import Home from './Views/Home'
 import Registro from './Views/Registro';
 import InicioSesion from './Views/InicioSesion';
 import ConsultarInfo from './Views/ConsultarInfo';

@@ -3,8 +3,7 @@ import Card from '../Components/Card-blank';
 import Form from '../Components/Form';
 import { Link } from 'react-router-dom';
 
-export default function(){
-
+export default function InicioSesion(){
     const login = (inputs) => {};
 
     return(

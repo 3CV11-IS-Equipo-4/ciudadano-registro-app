@@ -1,16 +1,11 @@
 import Layout from '../Components/Layout';
 import RowData from '../Components/RowData';
-import Table from '../Components/Table';
-import {tables} from '../utils/const';
 import { api } from '../utils/https';
 import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useEffect, useState} from 'react';
-import { useHistory } from "react-router-dom";
-
 
 function ConsultarInfo(){
-    const history = useHistory();
     
     const [data, setData] = useState(null);
     const [user, setUser] = useState(null);
@@ -35,16 +30,7 @@ function ConsultarInfo(){
                 console.log("error",error);
             });
     }, []);
-
-    // Variable de prueba
-    let type = "ciudadano"
-    
-    let data_personas = [];
-
-    const aceptar = () => {};
-
-    const denegar = () => {};
-
+    const type = "ciudadano";
     return (
         <Layout type={type}>
             <div className="container  text-start">

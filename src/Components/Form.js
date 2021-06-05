@@ -11,19 +11,14 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
     const history = useHistory();
 
 	const registrar = (response) => {
-        
-        let data = {...inputs,["google_id_token"]:response.qc.id_token};
-        console.log("datos",data);
-        api.post('physical_persons',{...data}
-        ).then(res => {
-            console.log("Funciono",res);
-            let data = {["google_id_token"]:response.qc.id_token};
+        const body = {...inputs,["google_id_token"]:response.qc.id_token};
+        api.post('physical_persons',{...body}).then(res => {
+            const data = {["google_id_token"]:response.qc.id_token};
             api.post('physical_persons/login_google',{...data}
             ).then(({data,status}) =>{
                 if (status === 200){
                     window.localStorage.setItem('token',data.key_pp);
                     history.push('/ConsultarInfo');
-                    console.log('status',status);
                     console.log('data',data);
                 }
             }).catch(error => {
@@ -36,37 +31,23 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
 	}
 
     const loginGoogle = (response) => {
-        console.log("Funcion para el login");
-        let data = {["google_id_token"]:response.qc.id_token};
-        api.post('physical_persons/login_google',{...data}
-        ).then(({data,status}) =>{
-            if (status === 200){
-                window.localStorage.setItem('token',data.key_pp);
-                history.push('/ConsultarInfo');
-                console.log('status',status);
-                console.log('data',data);
-            }
-        }).catch(error => {
-            console.log("error",error.message);
-            history.push('/');
-        })
+        const data = {["google_id_token"]:response.qc.id_token};
+        api.post('physical_persons/login_google',{...data})
+            .then(({data,status}) => {
+                if (status === 200){
+                    window.localStorage.setItem('token',data.key_pp);
+                    setTimeout(() => history.push('/ConsultarInfo'), [700])
+                    console.log('status',status);
+                    console.log('data',data);
+                }
+            }).catch(error => {
+                console.log("error",error.message);
+                history.push('/');
+            })
     }
-	
-	//let { type } = useParams();
-	const logout = (response) => {
-		console.log("Adios", response);
-	}
 
 	const handleLoginFailure = error => {
 		console.log("Login Failure ", error);
-	}
-	
-	const handleLogoutSuccess = (response) => {
-		console.log("Logout Success ", response);
-	}
-	
-	const handleLogoutFailure = error => {
-		console.log("Logout Failure ", error);
 	}
 	
 	const handleRequest = () => {
@@ -121,24 +102,24 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
     }
     return(
         <form onSubmit={handleSubmit} className="container">
-            <div className={stylingF || "d-flex flex-wrap justify-content-center"}>
+            <div className={stylingF || "d-flex flex-row flex-wrap justify-content-center"}>
                 {inputsData ? 
                     inputsData.map((i,index) => 
                     selectType(i,index))
                     : ''
                 }
+                {type === "general" ?
+                    <Button type="submit" styling={styling} text={textBtn}></Button>:
+                    <GoogleLogin
+                    clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
+                    buttonText={islogin ? "Iniciar sesión" : "Registrate"}
+                    onSuccess={islogin ? loginGoogle : registrar}
+                    onFailure={handleLoginFailure}
+                    onRequest={handleRequest}
+                    onAutoLoadFinished={handleAutoLoadFinished}
+                    />}
                 {children}
             </div>
-            {type === "general" ?
-            <Button type="submit" styling={styling} text={textBtn}></Button>:
-            <GoogleLogin
-            clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
-            buttonText={islogin ? "Iniciar sesión" : "Registrate"}
-            onSuccess={islogin ? loginGoogle : registrar}
-            onFailure={handleLoginFailure}
-            onRequest={handleRequest}
-            onAutoLoadFinished={handleAutoLoadFinished}
-            />}
         </form>
     );
 };

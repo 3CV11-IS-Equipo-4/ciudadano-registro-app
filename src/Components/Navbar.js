@@ -28,18 +28,18 @@ export default function Navbar({type}){
                     <div className="d-flex justify-content-end mr-5">
                         <ul className="nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/ConsultarInfo">
                                     Consultar información
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/FirmaDocumento">
                                     Firmar documento
                                 </Link>
                             </li>
                             {type === "ciudadano" ? 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/ConsultarInfoPM">
                                     Acceder como persona moral
                                 </Link>
                             </li> :

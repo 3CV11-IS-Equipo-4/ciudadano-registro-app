@@ -3,7 +3,7 @@ module.exports = {
         ciudadano: [
             {
                 label: 'Nombre(s)',
-                name: 'nombres',
+                name: 'names',
                 type: 'text',
                 placeholder: 'Mario',
                 required: true,
@@ -11,7 +11,7 @@ module.exports = {
             },
             {
                 label: 'Primer apellido',
-                name: 'primerApellido',
+                name: 'first_surname',
                 type: 'text',
                 placeholder: '',
                 required: true,
@@ -19,7 +19,7 @@ module.exports = {
             },
             {
                 label: 'Segundo apellido',
-                name: 'segundoApellido',
+                name: 'second_surname',
                 type: 'text',
                 placeholder: 'Juarez',
                 required: true,
@@ -27,7 +27,7 @@ module.exports = {
             },
             {
                 label: 'CURP',
-                name: 'curp',
+                name: 'CURP',
                 type: 'text',
                 placeholder: 'lskdkhfhjfs',
                 required: true,
@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 label: 'RFC',
-                name: 'rfc',
+                name: 'RFC',
                 type: 'text',
                 placeholder: 'rfc',
                 required: true,
@@ -43,7 +43,7 @@ module.exports = {
             },
             {
                 label: 'Fecha de nacimiento',
-                name: 'fechaNacimiento',
+                name: 'birth_date',
                 type: 'date',
                 placeholder: '',
                 required: true,
@@ -51,7 +51,7 @@ module.exports = {
             },
             {
                 label: 'Calle',
-                name: 'calle',
+                name: 'street',
                 type: 'text',
                 placeholder: 'Mar mediterraneo',
                 required: true,
@@ -59,7 +59,7 @@ module.exports = {
             },
             {
                 label: 'Número exterior',
-                name: 'numExterior',
+                name: 'external_number',
                 type: 'text',
                 placeholder: '54',
                 required: true,
@@ -67,7 +67,7 @@ module.exports = {
             },
             {
                 label: 'Número interior',
-                name: 'numInterior',
+                name: 'internal_number',
                 type: 'text',
                 placeholder: '32',
                 required: true,
@@ -75,7 +75,7 @@ module.exports = {
             },
             {
                 label: 'Colonia',
-                name: 'colonia',
+                name: 'suburb',
                 type: 'text',
                 placeholder: 'Anahuac',
                 required: true,
@@ -83,7 +83,7 @@ module.exports = {
             },
             {
                 label: 'Código postal',
-                name: 'cp',
+                name: 'postal_code',
                 type: 'number',
                 placeholder: '11320',
                 required: true,
@@ -91,7 +91,7 @@ module.exports = {
             },
             {
                 label: 'Alcaldía',
-                name: 'alcaldia',
+                name: 'town',
                 type: 'text',
                 placeholder: 'Miguel Hidalgo',
                 required: true,
@@ -101,7 +101,7 @@ module.exports = {
         personaMoral: [
             {
                 label: 'RFC',
-                name: 'rfc',
+                name: 'RFC',
                 type: 'text',
                 placeholder: 'rfc',
                 required: true,
@@ -109,23 +109,15 @@ module.exports = {
             },
             {
                 label: 'Denominación social',
-                name: 'denominacionSocial',
+                name: 'business_name',
                 type: 'text',
                 placeholder: 'Denominación social',
                 required: true,
 
             },
             {
-                label: 'Razón social',
-                name: 'razonSocial',
-                type: 'text',
-                placeholder: 'Razón social',
-                required: true,
-
-            },
-            {
                 label: 'Calle',
-                name: 'calle',
+                name: 'street',
                 type: 'text',
                 placeholder: 'Mar mediterraneo',
                 required: true,
@@ -133,7 +125,7 @@ module.exports = {
             },
             {
                 label: 'Número exterior',
-                name: 'numExterior',
+                name: 'external_number',
                 type: 'text',
                 placeholder: '54',
                 required: true,
@@ -141,7 +133,7 @@ module.exports = {
             },
             {
                 label: 'Número interior',
-                name: 'numInterior',
+                name: 'internal_number',
                 type: 'text',
                 placeholder: '54',
                 required: true,
@@ -149,7 +141,7 @@ module.exports = {
             },
             {
                 label: 'Colonia',
-                name: 'colonia',
+                name: 'suburb',
                 type: 'text',
                 placeholder: 'Anahuac',
                 required: true,
@@ -157,7 +149,7 @@ module.exports = {
             },
             {
                 label: 'Código postal',
-                name: 'cp',
+                name: 'postal_code',
                 type: 'number',
                 placeholder: '11320',
                 required: true,
@@ -165,25 +157,9 @@ module.exports = {
             },
             {
                 label: 'Alcaldía',
-                name: 'alcaldia',
+                name: 'town',
                 type: 'text',
                 placeholder: 'Miguel Hidalgo',
-                required: true,
-
-            },
-            {
-                label: 'Contraseña',
-                name: 'contrasena',
-                type: 'password',
-                placeholder: '',
-                required: true,
-
-            },
-            {
-                label: 'Confirmar contraseña',
-                name: 'contrasena2',
-                type: 'password',
-                placeholder: '',
                 required: true,
 
             },
@@ -191,42 +167,42 @@ module.exports = {
         modificarInfo: [
             {
                 label: 'Calle',
-                name: 'calle',
+                name: 'street',
                 type: 'text',
                 placeholder: 'Mar mediterraneo',
                 required: true,
             },
             {
                 label: 'Número exterior',
-                name: 'num_exterior',
+                name: 'external_number',
                 type: 'text',
                 placeholder: '200',
                 required: true,
             },
             {
                 label: 'Número interior',
-                name: 'num_interior',
+                name: 'internal_number',
                 type: 'text',
                 placeholder: '43',
                 required: true,
             },
             {
                 label: 'Colonia',
-                name: 'colonia',
+                name: 'suburb',
                 type: 'text',
                 placeholder: 'Anahuac',
                 required: true,
             },
             {
                 label: 'Codigo Postal',
-                name: 'cp',
+                name: 'postal_code',
                 type: 'text',
                 placeholder: '11320',
                 required: true,
             },
             {
                 label: 'Alcaldía',
-                name: 'alcaldia',
+                name: 'town',
                 type: 'text',
                 placeholder: 'Miguel Hidalgo',
                 required: true,
@@ -244,23 +220,16 @@ module.exports = {
         agregarPersona: [
             {
                 label: 'CURP de persona física',
-                name: 'curp',
+                name: 'CURP_physical_person',
                 type: 'text',
                 placeholder: 'CURP',
                 required: true,
             },
             {
                 label: 'RFC de persona física',
-                name: 'rfc',
+                name: 'RFC_physical_person',
                 type: 'text',
                 placeholder: 'RFC',
-                required: true,
-            },
-            {
-                label: 'Contraseña',
-                name: 'password',
-                type: 'password',
-                placeholder: '',
                 required: true,
             },
         ],

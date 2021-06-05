@@ -7,11 +7,13 @@ export default function Table({cols, datos, aceptar, denegar}) {
     () => [
         ...datos
     ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 
   const columns = useMemo(
     () => [...cols],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 

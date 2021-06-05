@@ -1,8 +1,15 @@
 import logo from '../img/logocdmx.png'
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
+import { GoogleLogout } from 'react-google-login';
+import { useHistory } from "react-router-dom";
 
 export default function Navbar({type}){
+    const history = useHistory();
+    const logout = (response) =>{
+        window.localStorage.removeItem('token');
+        history.push('/');
+    }
     return(
         <nav className="navbar bar">
             <div className="container-fluid conter">
@@ -21,18 +28,18 @@ export default function Navbar({type}){
                     <div className="d-flex justify-content-end mr-5">
                         <ul className="nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/ConsultarInfo">
                                     Consultar información
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/FirmaDocumento">
                                     Firmar documento
                                 </Link>
                             </li>
                             {type === "ciudadano" ? 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
+                                <Link className="nav-link" to="/ConsultarInfoPM">
                                     Acceder como persona moral
                                 </Link>
                             </li> :
@@ -43,9 +50,10 @@ export default function Navbar({type}){
                             </li>
                             }
                             <li className="nav-item">
-                                <Link className="nav-link" to="/logout">
-                                    Cerrar Sesión
-                                </Link>
+                            <GoogleLogout
+                            clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
+                            onLogoutSuccess={logout}
+                            />
                             </li>
                         </ul>
                     </div>

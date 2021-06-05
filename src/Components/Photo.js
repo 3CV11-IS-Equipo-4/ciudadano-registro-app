@@ -72,6 +72,7 @@ export default function Photo({label, required,name, change}) {
                 .catch((e) => console.log(e))
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[files]);
 
     useEffect(() => {

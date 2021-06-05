@@ -3,7 +3,58 @@ import useForm from "../hooks/useForm";
 import Input from "./Input";
 import Select from "./Select";
 import Photo from "./Photo";
-export default function Form({submit, inputsData, textBtn, children, styling, stylingF, stylingI,page}) {
+import { GoogleLogin} from 'react-google-login';
+import { api } from '../utils/https';
+import {useHistory} from "react-router-dom";
+
+export default function Form({submit, inputsData, textBtn, children, styling, stylingF, stylingI,page,type,islogin}) {
+    const history = useHistory();
+
+	const registrar = (response) => {
+        const body = {...inputs,"google_id_token":response.qc.id_token};
+        api.post('physical_persons',{...body}).then(res => {
+            const data = {"google_id_token":response.qc.id_token};
+            api.post('physical_persons/login_google',{...data}
+            ).then(({data,status}) =>{
+                if (status === 200){
+                    window.localStorage.setItem('token',data.key_pp);
+                    history.push('/ConsultarInfo');
+                    console.log('data',data);
+                }
+            }).catch(error => {
+                console.log("error",error.message);
+                history.push('/');
+            })
+        }).catch(error => {
+            console.log("Error",error);
+        })
+	}
+
+    const loginGoogle = (response) => {
+        const data = {"google_id_token":response.qc.id_token};
+        api.post('physical_persons/login_google',{...data})
+            .then(({data,status}) => {
+                if (status === 200){
+                    window.localStorage.setItem('token',data.key_pp);
+                    setTimeout(() => history.push('/ConsultarInfo'), [700])
+                    console.log('status',status);
+                    console.log('data',data);
+                }
+            }).catch(error => {
+                console.log("error",error.message);
+                history.push('/');
+            })
+    }
+
+	const handleLoginFailure = error => {
+		console.log("Login Failure ", error);
+	}
+	
+	const handleRequest = () => {
+	}
+	
+	const handleAutoLoadFinished = () => {
+	}
 
     const {
         inputs,
@@ -51,16 +102,24 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
     }
     return(
         <form onSubmit={handleSubmit} className="container">
-            <div className={stylingF || "d-flex flex-wrap justify-content-center"}>
+            <div className={stylingF || "d-flex flex-row flex-wrap justify-content-center"}>
                 {inputsData ? 
                     inputsData.map((i,index) => 
                     selectType(i,index))
                     : ''
                 }
+                {type === "general" ?
+                    <Button type="submit" styling={styling} text={textBtn}></Button>:
+                    <GoogleLogin
+                    clientId="1025548408565-f1lq2ji404qtce9r52hnbq38p3qg0a1l.apps.googleusercontent.com"
+                    buttonText={islogin ? "Iniciar sesión" : "Registrate"}
+                    onSuccess={islogin ? loginGoogle : registrar}
+                    onFailure={handleLoginFailure}
+                    onRequest={handleRequest}
+                    onAutoLoadFinished={handleAutoLoadFinished}
+                    />}
                 {children}
             </div>
-            <Button type="submit" styling={styling} text={textBtn}></Button>
-            
         </form>
     );
 };

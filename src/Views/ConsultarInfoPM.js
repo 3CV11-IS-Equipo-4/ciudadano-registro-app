@@ -5,8 +5,7 @@ import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useEffect, useState} from 'react';
 
-function ConsultarInfo(){
-    
+function ConsultarInfoPM() {
     const [data, setData] = useState(null);
     const [user, setUser] = useState(null);
 
@@ -30,7 +29,9 @@ function ConsultarInfo(){
                 console.log("error",error);
             });
     }, []);
-    const type = "ciudadano";
+
+    let type = "ciudadano";
+
     return (
         <Layout type={type}>
             <div className="container  text-start">
@@ -48,4 +49,4 @@ function ConsultarInfo(){
     );
 }
 
-export default protect(ConsultarInfo)
+export default protect(ConsultarInfoPM);

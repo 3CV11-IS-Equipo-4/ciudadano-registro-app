@@ -3,7 +3,7 @@ import Card from '../Components/Card-blank';
 import Form from '../Components/Form';
 import {registers} from '../utils/const'
 
-export default function(){
+export default function RecuperarAcces(){
     const access = (inputs) => {};
     return(
         <Layout type="persona-moral">

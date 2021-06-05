@@ -7,7 +7,7 @@ function Layout({head, subheading,children,type}){
     return(
         <div className="container-fluid text-center layout d-flex flex-column">
         <Navbar type={type}/>
-        <h1 className="m-5">{head}</h1>
+        <h1 className="p-1">{head}</h1>
         {subheading ? <h2 className="m-5">{subheading}</h2>:''}
         <div className="container d-flex flex-fill justify-content-start align-items-center flex-column">
             {children}            

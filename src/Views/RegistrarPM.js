@@ -23,7 +23,7 @@ function RegistrarPM(){
             }
         };
         console.log("request",{...config},{...inputs});
-		axios.post(path+'moral_persons',{...config},{...inputs})	
+		axios.post(`${path}moral_persons`,{...inputs},config)	
             .then(({data, status})=>{
                 if(status === 200) {
                     setData(data);

@@ -4,6 +4,7 @@ import { api } from '../utils/https';
 import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 
 function ConsultarInfo(){
     
@@ -41,6 +42,7 @@ function ConsultarInfo(){
                 <RowData label1="Nombre(s):" data1={data.names} label2="Primer apellido:" data2={data.first_surname} label3="Segundo apellido:" data3={data.second_surname} />
                 <RowData label1="Calle:" data1={data.addresses[data.actual_address].street} label2="Número exterior:" data2={data.addresses[data.actual_address].external_number} label3="Número interior:" data3={data.addresses[data.actual_address].internal_number} />
                 <RowData label1="C.P.:" data1={data.addresses[data.actual_address].postal_code} label2="Alcaldia:" data2={data.addresses[data.actual_address].town} label3="Colonia:" data3={data.addresses[data.actual_address].suburb} />
+                <Link className="mt-5" to={{pathname: '/ModificarInfo', state:data.addresses}}>Modificar</Link>
             </div>:
             <></>}
             </div>

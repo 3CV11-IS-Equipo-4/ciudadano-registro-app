@@ -256,27 +256,31 @@ module.exports = {
         modificarInfo: [
             {
                 Header: 'Calle',
-                accessor: 'calle', // it is key in data
-            },
-            {
-                Header: 'Número Interior',
-                accessor: 'num_interior',
+                accessor: 'street', // it is key in data
             },
             {
                 Header: 'Número exterior',
-                accessor: 'num_exterior',
+                accessor: 'external_number',
             },
             {
-                Header: 'CP',
-                accessor: 'cp',
-            },
-            {
-                Header: 'Alcaldía',
-                accessor: 'alcaldia',
+                Header: 'Número interior',
+                accessor: 'internal_number',
             },
             {
                 Header: 'Colonia',
-                accessor: 'colonia',
+                accessor: 'suburb',
+            },
+            {
+                Header: 'C.P.',
+                accessor: 'postal_code',
+            },
+            {
+                Header: 'Alcaldía',
+                accessor: 'town',
+            },
+            {
+                Header: 'Usar',
+                accessor: 'prv_addr',
             },
         ],
         consultarInfo: [

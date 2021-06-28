@@ -31,14 +31,17 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
 	}
 
     const loginGoogle = (response) => {
-        const data = {"google_id_token":response.qc.id_token};
+        //console.log("response",response);
+        //const data = {"google_id_token":response.qc.id_token};
+        const data = {"google_id_token":response.tokenId};
         api.post('physical_persons/login_google',{...data})
             .then(({data,status}) => {
                 if (status === 200){
                     window.localStorage.setItem('token',data.key_pp);
-                    setTimeout(() => history.push('/ConsultarInfo'), [700])
                     console.log('status',status);
                     console.log('data',data);
+                    //setTimeout(() => history.push('/ConsultarInfo'), [700]);
+                    history.push('/ConsultarInfo');
                 }
             }).catch(error => {
                 console.log("error",error.message);

@@ -38,11 +38,18 @@ export default function Navbar({type}){
                                 </Link>
                             </li>
                             {type === "ciudadano" ? 
+                            <>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/ConsultarInfoPM">
                                     Acceder como persona moral
                                 </Link>
-                            </li> :
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/RegistrarPM">
+                                    Registrar persona moral
+                                </Link>
+                            </li>
+                            </> :
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">
                                     Agregar persona física

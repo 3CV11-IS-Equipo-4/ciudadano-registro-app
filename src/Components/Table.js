@@ -1,10 +1,7 @@
 import { useTable, useSortBy } from 'react-table';
-import { useMemo,useState } from 'react'; 
-import { Link } from 'react-router-dom';
+import { useMemo } from 'react'; 
 
 export default function Table({cols, datos, aceptar, denegar}) {
-  const [cell, setCell] = useState(null);
-  const [row, setRow] = useState(null);
   const data = useMemo(
     () => [
         ...datos
@@ -31,7 +28,7 @@ export default function Table({cols, datos, aceptar, denegar}) {
 
   const handleActionAceptar = (e) =>{
     e.preventDefault();
-    aceptar({"id":e.target.id,...rows.find(r => r.id == e.target.id).original});
+    aceptar({"id":e.target.id,...rows.find(r => String(r.id) === String(e.target.id)).original});
   };
 
   const getCell = (cell, row) =>{

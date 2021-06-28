@@ -25,7 +25,9 @@ function ConsultarInfo(){
                 if(status === 200) {
                     setData(data);
                     setUser(p);
+                    console.log("pp",p);
                     console.log("data",data);
+                    console.log("user",user);
                 }
             }).catch(error => {
                 console.log("error",error);
@@ -33,7 +35,7 @@ function ConsultarInfo(){
     }, []);
     const type = "ciudadano";
     return (
-        <Layout type={type}>
+        <Layout type={type} personas_morales={user ? user.sub.moral_persons : []}>
             <div className="container  text-start">
                 {user ? 
                 <div className="mb-4 mt-3">

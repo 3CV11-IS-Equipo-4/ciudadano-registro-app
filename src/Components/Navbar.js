@@ -3,8 +3,9 @@ import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 import { useHistory } from "react-router-dom";
+import Collapse from './CollapseItem';
 
-export default function Navbar({type}){
+export default function Navbar({type,personas_morales}){
     const history = useHistory();
     const logout = (response) =>{
         window.localStorage.removeItem('token');
@@ -40,14 +41,12 @@ export default function Navbar({type}){
                             {type === "ciudadano" ? 
                             <>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/ConsultarInfoPM">
-                                    Acceder como persona moral
-                                </Link>
-                            </li>
-                            <li className="nav-item">
                                 <Link className="nav-link" to="/RegistrarPM">
                                     Registrar persona moral
                                 </Link>
+                            </li>
+                            <li>
+                                <Collapse options={personas_morales ? personas_morales : []} title="Personas morales"></Collapse>
                             </li>
                             </> :
                             <li className="nav-item">

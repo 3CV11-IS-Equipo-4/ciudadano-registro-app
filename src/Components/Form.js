@@ -11,9 +11,10 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
     const history = useHistory();
 
 	const registrar = (response) => {
-        const body = {...inputs,"google_id_token":response.qc.id_token};
+        console.log(response);
+        const body = {...inputs,"google_id_token":response.tokenId};
         api.post('physical_persons',{...body}).then(res => {
-            const data = {"google_id_token":response.qc.id_token};
+            const data = {"google_id_token":response.tokenId};
             api.post('physical_persons/login_google',{...data}
             ).then(({data,status}) =>{
                 if (status === 200){

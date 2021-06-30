@@ -41,8 +41,8 @@ export default function Form({submit, inputsData, textBtn, children, styling, st
                     window.localStorage.setItem('token',data.key_pp);
                     console.log('status',status);
                     console.log('data',data);
-                    //setTimeout(() => history.push('/ConsultarInfo'), [700]);
-                    history.push('/ConsultarInfo');
+                    setTimeout(() => history.push('/ConsultarInfo'), [1000]);
+                    // history.push('/ConsultarInfo');
                 }
             }).catch(error => {
                 console.log("error",error.message);

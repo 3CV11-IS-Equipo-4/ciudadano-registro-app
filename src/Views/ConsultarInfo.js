@@ -50,4 +50,4 @@ function ConsultarInfo(){
     );
 }
 
-export default protect(ConsultarInfo)
+export default ConsultarInfo;

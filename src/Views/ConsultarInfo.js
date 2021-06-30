@@ -1,7 +1,6 @@
 import Layout from '../Components/Layout';
 import RowData from '../Components/RowData';
 import { api } from '../utils/https';
-import protect from '../utils/protect';
 import payload from '../utils/payload';
 import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
